@@ -10,4 +10,4 @@ The first assignment I would like to share is my Jelly Monsters math game. This 
 The goal of the project was to create a game that would teach 1st and 2nd graders simple addition and subtration. In addition we also created sign in functionality for both students and teachers so that teachers can keep track of their students progress, and students can see their work. 
 
 
-The second assignment I would like to share is a simple click game. 'The Chicken Clicker' is a simple page that counts clicks. It is nothing special, but it is fun, and shows shows a combination of CSS, JavaScript, and HTML 
+The second assignment I would like to share is a simple click game. 'The Chicken Clicker' is a simple page that counts clicks. It is nothing special, but it is fun, a little bit creative, and shows shows a combination of CSS, JavaScript, and HTML 
