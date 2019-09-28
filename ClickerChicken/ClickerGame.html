@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Chicken Clicker Game</title>
+	<link rel="stylesheet" href="clickerStyle.css">
+
+</head>
+<body>
+<h2> Click the Chicken or Egg! </h2>
+<h3><span id = clickCount></span></h3>
+<h4> What came first? </h4>
+
+ <img id= "clicker" src = "egg.png"></img>
+
+</body>
+
+<script>
+function $(sel) {
+			return document.querySelector(sel);
+		}
+
+let clicker = $("#clicker");
+let counter = $("#clickCount");
+let clicks = 0;
+let stage = 1; 
+let chickens = 0;
+
+function clickHandler (){
+	++clicks;
+	++stage;
+	counter.innerText = "You have clicked " + clicks + " times" + " and raised " + chickens + " chickens";
+	console.log(clicks);
+
+	if (stage ==1 ) {
+		clicker.src = "egg.png";
+		
+	}
+	if (stage ==2){
+		clicker.src = "chick.jpg";
+		++chickens;
+		
+	}
+	if(stage==3){
+		clicker.src = "Chicken.png";
+		stage = 0;
+		
+	}
+	
+
+}
+
+	clicker.addEventListener("click", clickHandler);
+</script>
+</html>

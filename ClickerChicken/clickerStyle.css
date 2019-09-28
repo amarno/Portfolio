@@ -1,0 +1,13 @@
+﻿body
+{
+position:relative;
+}
+
+#clicker{
+	 position: absolute;
+    /* 0.25in from the left side of the body */
+    left:3in;
+    /* 0.25in from the top side of the body */
+    top: 2in;
+	width: 150px;
+}
