@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/rator.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+        <title>Danger Rator</title>
+    </head>
+    <body>
+
+        <h2> About this app: </h2>
+
+        <div id = "beacon" style= "padding-left: 8vw; padding-right: 8vw; padding-bottom: 3vh;">  
+            <p> <span class="highlight"> This app was created to provide a resource for winter adventurers going into the backcountry. 
+                This is not meant to replace any avalanche reporting or education, but to be used when there is no or limited reporting for the area being accessed.
+                <br>
+                <br> 
+
+                The questions and ratings used in the Danger Rator are taken from Avalanche Canada’s Danger Rator. 
+                The Danger Rator is not meant to be used in spring conditions, and it is not a flawless system. 
+                It is only meant to help backcountry travelers make better decisions. 
+                Always refer first to professional avalanche forecasting and reporting if possible. 
+                
+            </span> </p>
+         </div>
+
+        <div style="text-align: center; font-size: 20px; float: right; padding: 5vw;"> <p><a id="home"> Main Menu </a> </p> </div>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/rator.js"></script>
+
+
+    </body>
+</html>

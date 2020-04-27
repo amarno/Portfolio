@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/rator.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+        <title>Danger Rator</title>
+    </head>
+    <body onload= "answer()">
+
+        <h2> Based on your answers the risk rating today is:</h2>
+        <div style="text-align: center;"> <h1 id ="answer"> </h1> </div>
+
+        <div id = "mod" style= "display: none; padding-left: 8vw; padding-right: 8vw; padding-bottom: 3vh;">  
+            <p> <span class="highlight"> Natural occuring avalanches are unlikely while human triggered avalanches are possible. 
+            <br>
+            <br>
+            You answered 'no' to all of the questions however you should still avoid common hazards such as terrain traps, wind loading, or trigger points.
+            <br> 
+            <br>
+            Continue to make observations throughout the day while evaluating snow, terrain, and weather. </span> </p>
+         </div>
+
+        <div id = "con" style="display: none; padding-left: 8vw; padding-right: 8vw; padding-bottom: 3vh;"> 
+            <p> <span class="highlight"> Natural occuring avalanches possible while human triggered avalanches are likely.
+                <br>
+                <br>
+                To stay safe, avoid steep slopes (greater than 30 degrees), and common hazards such as terrain traps, wind loading, or trigger points. 
+                <br>
+                <br>
+                Continue to make observations throughout the day while evaluating snow, terrain, and weather </span> 
+        </p> </div>
+        
+        <div id = "high" style="display: none; padding-left: 8vw; padding-right: 8vw; padding-bottom: 3vh;"> 
+            <p> <span class="highlight"> Natural and human triggered avalanches are likely. It is not recommended to be in any kind of avalanche terrain. 
+                <br>
+                <br>
+                To stay safe, avoid steep slopes (greater than 30 degrees) and common hazards such as terrain traps, wind loading, or trigger points. 
+                <br>
+                IF there is significant warming (the high temp for the day is above freezing) take special care on sun affected slopes.
+                <br>
+                <br>
+                Continue to make observations throughout the day while evaluating snow, terrain, and weather </span>
+        </p> </div>
+
+        <div style="text-align: center; font-size: 20px; float: right; padding: 5vw;"> <p> <a id="home"> Main Menu </a> </p> </div>
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/rator.js"></script>
+
+
+    </body>

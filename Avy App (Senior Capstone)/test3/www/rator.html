@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/rator.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+        <title>Danger Rator</title>
+    </head>
+    <body style="font-family: 'Muli';">
+
+        <div style="text-align: center;">
+            <h1> Danger  Rator</h1>
+        </div>
+
+        <h2 style="text-align: left; padding-left: 10px;"> Answer the following questions to get a basic risk rating: </h2>
+
+        <div id= flow style="padding-left: 10px;">
+            <div style="text-align: left;"> 
+                <div>
+                <p> <span class="highlight"> &nbsp Is there critical loading? &nbsp</span> <a id="clq"> Help? </a></p>
+                <button id="cly"> YES </button>
+                <button id="cln">NO</button>
+                </div>
+
+                <div id="cw" style="display: none;">
+                    <p><span class="highlight"> &nbsp Is the high temp for today close to or above freezing? (30F or 0C) &nbsp </span> <a id="cwq"> Why? </a> </p>
+                    <button id="cwy"> YES </button>
+                    <button id="cwn">NO</button>
+                </div> 
+
+                <div id="last" style="display: none; padding-bottom: 8vh;">
+                    <p> <span class="highlight"> &nbsp Is there recent loading? &nbsp </span> <a id="rlq"> Help? </a></p>
+                    <p> <span class="highlight"> &nbsp OR signs of recent avalanches? &nbsp </span> <a id="raq"> Help? </a></p>
+                    <p> <span class="highlight"> &nbsp OR a known persistant weak layer in the snow pack? &nbsp </span> <a id="wlq"> Help? </a></p>
+                    <button id="lastyes"> YES </button>
+                    <button id="lastno"> NO</button>
+                </div>
+
+                <div id="final" style="display: none; padding-bottom: 3vh;">
+                    <button id= "submit" >Submit </button>
+                </div>
+
+                <!-- <div>
+                    <button id= "restart" onclick="window.location.reload()"> Start Over</button>
+
+                </div> -->
+
+            </div>
+
+            <div style="text-align: center; font-size: 20px; float: right; padding: 5vw;"> <p> <a id="home"> Main Menu </a> </p> </div>
+
+        </div>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/rator.js"></script>
+    </body>
+</html>

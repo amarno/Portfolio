@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/rator.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+        <title>Danger Rator</title>
+    </head>
+    <body>
+
+        <h2> Beacon check</h2>
+        <div style="text-align: center;"> <h1 id ="answer"> </h1> </div>
+
+        <div id = "beacon" style= "padding-left: 8vw; padding-right: 8vw; padding-bottom: 3vh;">  
+                <li> <span class="highlight"> Turn on your beacon and check the battery and lights/arrows. The battery should be at least 60% (with lithium batteries) </li><br>
+                <p> Before you leave the trailhead:</p> <br>
+                <li> <span class="highlight">Make sure everyone has their beacons turned on and they have checked their batteries</li><br>
+                <li> <span class="highlight"> Keep one beacon on 'send', and have everyone else turn their's to 'search' </li><br>
+                <li> <span class="highlight"> With everyone at least 3 meters apart, have the person with the 'send' beacon move around to each person, ensuring 
+                     that each beacon is accurately tracking direction and distance in regard to the beacon that is 'sending' </li><br>
+                <li> <span class="highlight"> Switch all of the beacons. Now one is searching and the rest are sending. 
+                    Have the person with the 'search' beacon start down the trail and stop at least 30 meters away </li><br>
+                <li> <span class="highlight"> One at a time, have each person walk by the 'searcher'. 
+                    The 'searcher' makes sure their beacon is getting an accurate signal from each passing person </li><br>
+                <li><span class = "highlight"> If everyone has a properly working beacon, double check that everyone in the group is 'sending' and their beacons are 
+                    secured to their bodies. Have a great adventure! 
+                </span></li>
+            </span> </p>
+         </div>
+
+         <p style="font-size: 16px;"> **there are many ways to do a beacon check, this is just one that works well with groups.</p>
+
+        <div style="text-align: center; font-size: 20px; float: right; padding: 5vw;"><p> <a id="home"> Main Menu </a> </p> </div>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/rator.js"></script>
+
+
+    </body>
+
+</html>
