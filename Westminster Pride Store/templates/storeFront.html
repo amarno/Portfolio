@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <title>Store Front </title>
+
+    <style>
+        body {
+  		font-family: "Merriweather";
+    </style>
+</head>
+<body>
+
+<div class = "header">
+    <img src="{{ MEDIA_URL }}/media/media/banner.png" style="max-height: 200px">
+
+  </div>
+
+<h1> Welcome to the Westminster Pride Store</h1>
+{% if product_list %}
+    <ul>
+     {% for product in product_list %}
+
+
+         <table>
+             <tr><th><a href = "{% url 'product' id=product.id %}">{{ product.product_name}}</a></th></tr>
+            <tr>
+                <td> <a href = "{% url 'product' id=product.id %}"><img src="{{MEDIA_URL}}{{ product.photo1.url }}"></a></td>
+            </tr>
+         </table>
+         <br>
+         <br>
+    {% endfor %}
+    </ul>
+
+
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
+
+</body>
+</html>
+
