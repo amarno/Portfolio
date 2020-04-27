@@ -1,32 +1,25 @@
-"""PythonProjects URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
-from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from testStore import views
 from django.conf import settings
+from django.conf.urls import url
 from django.conf.urls.static import static
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('testStore/product<int:id>/', views.product, name='product'),
-    ##path('jokes/joke/<int:id>', views.view_joke, name='view_joke'),
-
+    path('', views.HomeView.as_view(), name='home'),
+    path('testStore/', include('django.contrib.auth.urls')),  # new
+    path('testStore/product<slug>/', views.ProductView.as_view(), name='product'),
+    path('testStore/add_to_cart<slug>/', views.add_to_cart, name='add_to_cart'),
+    path('testStore/remove_from_cart<id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('testStore/cart/', views.CartView.as_view(), name='cart'),
+    path('testStore/checkout/', views.OrderForm.as_view(), name='checkout'),
+    path('add_form/', views.AddForm.as_view(), name='add_prod'),
+    path('size_form/', views.AddSize.as_view(), name='add_size'),
     path('admin/', admin.site.urls),
+    path('owner/', views.OwnerPage.as_view(), name='owner'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

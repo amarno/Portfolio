@@ -14,9 +14,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -29,11 +29,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Owner\PythonProjects\templates" />
+      <recent name="C:\Users\Owner\PythonProjects\templates\testStore" />
+      <recent name="C:\Users\Owner\PythonProjects\static" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Owner\PythonProjects\media\media" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Owner\PythonProjects\static" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -89,7 +91,18 @@
       <workItem from="1570719183898" duration="19080000" />
       <workItem from="1571278912709" duration="446000" />
       <workItem from="1571332511284" duration="3527000" />
-      <workItem from="1572222917746" duration="31240000" />
+      <workItem from="1572222917746" duration="34432000" />
+      <workItem from="1572988020865" duration="2125000" />
+      <workItem from="1573161063984" duration="7072000" />
+      <workItem from="1573512694260" duration="23350000" />
+      <workItem from="1573679016505" duration="5695000" />
+      <workItem from="1573765754259" duration="5254000" />
+      <workItem from="1573829875337" duration="60356000" />
+      <workItem from="1574009549389" duration="58981000" />
+      <workItem from="1575405217706" duration="21065000" />
+      <workItem from="1576001910065" duration="30721000" />
+      <workItem from="1576104197384" duration="23773000" />
+      <workItem from="1578073058082" duration="621000" />
     </task>
     <servers />
   </component>

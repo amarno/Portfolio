@@ -1,0 +1,15 @@
+body {
+    font-family: "Merriweather";
+    }
+#row {
+    display: flex;
+    }
+
+#thumb {
+    flex: 50%;
+    padding: 5px;
+    }
+
+body {
+    font-family: "Merriweather";
+    }

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Size Form</title>
+</head>
+<body>
+<h2> Add a new size option: </h2>
+<form method="post" enctype="multipart/form-data" action= {% url 'home' %}>{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

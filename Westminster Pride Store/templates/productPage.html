@@ -1,87 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+    <link rel="stylesheet" href="{{ MEDIA_URL }}/media/media/pridestyle.css">
+ <head>
     {% load static %}
     <meta charset="UTF-8">
     <style>
-        .row {
-            display: flex;
-        }
-
-        .thumb {
-            flex: 50%;
-            padding: 5px;
-        }
         body {
-  		font-family: "Merriweather";
+  		font-family: "Lato";
+            color: #8252c7;
 			}
-
     </style>
 
 <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <title> Product Page </title>
 
 </head>
 <body>
-<div class = "header">
-    <img src="{{ MEDIA_URL }}/media/media/banner.png" style="max-height: 200px">
-
+<div class = "header" style="text-align: center">
+    <a href= {% url 'home' %}> <img src="{{ MEDIA_URL }}/media/media/banner.png" style= "max-width:60vw; text-align: center"></a>
   </div>
 
- <h1> {{ product.product_name }}</h1>
- <h2 id="product">{{ product.product_price }}</h2>
+{% if messages %}
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+{% endif %}
 
 <!-- attempt 2 -->
-<div class= "p" style="width:100px">
-    <img class="slide" src="{{MEDIA_URL}}{{ product.photo1.url }}">
-    <img class="slide" src="{{MEDIA_URL}}{{ product.photo2.url }}" style="display: none">
+<div style="width:55vw; margin: auto">
+<div class= "p" style="width: 60%; margin: auto; text-align: center; float: left">
 
-  <div class="row">
-    <div class="thumb">
-      <img src="{{MEDIA_URL}}{{ product.photo1.url }}" style="width:100px;cursor:pointer" onclick="currentDiv(1)">
-    </div>
-    <div class="thumb">
-      <img src="{{MEDIA_URL}}{{ product.photo2.url }}" style="width:100px;cursor:pointer" onclick="currentDiv(2)">
-    </div>
-  </div>
+    <img class="slide" src="{{MEDIA_URL}}{{ product.photo2.url }}" style="width: 30vw">
 </div>
 
-<br>
-<br>
+<div style="float: right; width: 40%;">
+<div style="font-size: 24px; font-weight: bold; color: #211551"> {{ product.name }}</div>
+    <div style="font-size: 20px" id="product">{{ product.price }}</div>
 
-<div id ="size">
-    Select your size:
+    <form id='add_to_cart' method="POST" action="{% url 'add_to_cart' product.slug %}"> {% csrf_token %}
+        <div style="color: #211551; font-size: 20px">Size:
+
+    <select id = 'select_size' name="size"  style="color: #211551; font-size: 16px; border-color: #211551; border-width: 1px">
+        {% for item in product.size_set.all %}
+        <option value="{{ item.size }}"} > {{ item.size }} {{ item.price }} </option>
+        {% endfor %}
+    </select>
     <br>
-    <form>
-        <input type = radio name="size" value="small"> Small
-        <input type = radio name="size" value="medium"> Medium
-        <input type = radio name="size" value="large"> Large
-    </form>
-    <br>
-    <button onclick= cartAlert()> Add To Cart </button>
+
+    <div style="font-size: 20px; padding-top: 10px; color: #211551;"> Quantity:
+            <input style="font-size: 16px; border-color: #211551; border-width: 1px" type="number" name="qty"  min="1"  max="10" value="1" required/>
+    </div>
+        <br>
+    <input class ="buttoncart" type="submit" value="Add To Cart"/>
+<br>
+</form>
+<div>
+    <div style="padding-top: 14px"><a class="buttoncart" href= {% url 'home' %}> Continue Shopping </a></div>
+	<div style="padding-top: 20px"><a class="buttoncart" href = "{% url 'cart' %}"> Checkout </a></div>
+    </div>
 </div>
 
-
+<h2 id="gone" style="display: none; text-align: center"> Out of Stock</h2>
 
 <script>
-
-    function cartAlert() {
-        alert("Shopping cart coming soon!");
-    }
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-function showDivs(n) {
-  let i;
-  let x = document.getElementsByClassName("slide");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  x[slideIndex-1].style.display = "block";
-}
+{% if product.size_set.count == 0 %}
+    hide()
+        {% endif %}
 </script>
+<br>
+</div>
+
 </body>
+
+<script>
+    function hide() {
+        let f = document.getElementById("add_to_cart");
+        let g = document.getElementById("gone");
+        if (f.style.display === "none") {
+        f.style.display = "block";
+        {#g.style.display = "block";#}
+        } else {
+            f.style.display = "none";
+            g.style.display = "block";
+        }
+    }
+</script>
 </html>
 

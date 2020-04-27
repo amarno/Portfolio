@@ -16,6 +16,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = '/owner/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +30,7 @@ SECRET_KEY = '4)qlud=skn@i9s57g&j6d$t5$358u(d-=ilg&m07a6sy)m07gc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.2', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -104,6 +107,21 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -123,3 +141,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+print(STATIC_ROOT)

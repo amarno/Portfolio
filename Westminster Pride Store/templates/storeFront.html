@@ -3,37 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
-    <title>Store Front </title>
+	
+    <link rel="stylesheet" href="{{ MEDIA_URL }}/media/media/pridestyle.css">
+   
+         <title>Store Front </title>
 
     <style>
         body {
   		font-family: "Merriweather";
+        color: #8252c7;
     </style>
 </head>
 <body>
+<div style="padding-top: 5px; padding-bottom: 20px; float: right"><a class="buttoncart" href = "{% url 'cart' %}"> Cart </a></div>
 
-<div class = "header">
-    <img src="{{ MEDIA_URL }}/media/media/banner.png" style="max-height: 200px">
-
+<div class = "headerborder" style="text-align: center">
+    <img class="photobanner" src="{{ MEDIA_URL }}/media/media/banner.png" style= "max-width:60vw; text-align: center">
   </div>
 
-<h1> Welcome to the Westminster Pride Store</h1>
-{% if product_list %}
-    <ul>
-     {% for product in product_list %}
+<h1 class="welcome" style="text-align: center;"> Welcome to the Westminster Pride Store</h1>
+
+{#{% if object_list %}#}
+{#     {% for product in object_list %}#}
+{##}
+{##}
+{#         <table class ="productRow" style= "display: inline-block; width:auto">#}
+{#             <tr><th> <a href = "{{ product.get_absolute_url }}">{{ product.name}}</a></th></tr>#}
+{#            <tr>#}
+{#                <td class="storeimg">  <a href = "{{ product.get_absolute_url }}">#}
+{#                    <img src="{{MEDIA_URL}}{{ product.photo1.url }}"></a></td>#}
+{#            </tr>#}
+{#         </table>#}
+{#         <br>#}
+{#         <br>#}
+{#    {% endfor %}#}
+{##}
+{#{% else %}#}
+{#    <p>No products are available.</p>#}
+{#{% endif %}#}
 
 
-         <table>
-             <tr><th><a href = "{% url 'product' id=product.id %}">{{ product.product_name}}</a></th></tr>
-            <tr>
-                <td> <a href = "{% url 'product' id=product.id %}"><img src="{{MEDIA_URL}}{{ product.photo1.url }}"></a></td>
-            </tr>
-         </table>
-         <br>
-         <br>
+
+{% if object_list %}
+     {% for product in object_list %}
+
+         <div style="float:left; margin: auto; padding-left: 8vw; padding-top: 10px; padding-bottom: 20px">
+             <div style="text-align: center; font-family: 'Merriweather'; font-size: 30px"> <a style="text-decoration: none" href = "{{ product.get_absolute_url }}">{{ product.name}}</a></div>
+             <div style="text-align: center; font-family: 'Merriweather'; font-size: 20px"> {{ product.price}}</div>
+
+            <div style="text-align: center; border: 4px #8252c7 solid"> <a href = "{{ product.get_absolute_url }}">
+                <img style="height: 20vw" src="{{MEDIA_URL}}{{ product.photo1.url }}"></a>
+            </div>
+         </div>
+{#         <table class ="productRow" style= "display: inline-block; width:auto">#}
+{#             <tr><th> <a href = "{{ product.get_absolute_url }}">{{ product.name}}</a></th></tr>#}
+{#            <tr>#}
+{#                <td class="storeimg">  <a href = "{{ product.get_absolute_url }}">#}
+{#                    <img src="{{MEDIA_URL}}{{ product.photo1.url }}"></a></td>#}
+{#            </tr>#}
+{#         </table>#}
+{#         <br>#}
+{#         <br>#}
     {% endfor %}
-    </ul>
-
 
 {% else %}
     <p>No products are available.</p>
@@ -41,4 +72,3 @@
 
 </body>
 </html>
-

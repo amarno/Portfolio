@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}/media/media/pridestyle.css">
+
+{#<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
+</head>
+<body>
+<div class = "header" style="text-align: center">
+    <a href= {% url 'home' %}> <img src="{{ MEDIA_URL }}/media/media/banner.png" style= "max-width:60vw; text-align: center"></a>
+  </div>
+<h2 style="text-align: center"> Shopping Cart</h2>
+
+
+<table id="cart" style="width: 50vw; margin: 0px auto">
+<thead>
+    <tr align="left">
+        <th>Product</th>
+        <th>Size</th>
+        <th>Quantity</th>
+    </tr>
+</thead>
+<tbody>
+{% for CartItem in object.item.all %}
+    <tr align="left">
+        <td>{{ CartItem.item }}</td>
+        <td>{{ CartItem.size }}</td>
+        <td>{{ CartItem.qty }}<td>
+        <td>{{ CartItem.total_price }}</td>
+        <td> <a href="{% url 'remove_from_cart' CartItem.id %}"> Remove </a></td>
+    </tr>
+    {% empty %}
+    <h2 style="text-align: center">Your Cart is empty!</h2>
+        <script>
+            function hide() {
+            let f = document.getElementById("cart");
+            if (f.style.display === "none") {
+            f.style.display = "block";
+            }
+                else {
+                f.style.display = "none";
+            }
+        }
+        hide()
+        </script>
+{% endfor %}
+<tr>
+<td>   </td>
+</tr>
+<tr>
+<td>   </td>
+</tr>
+<tr style="padding: 50px">
+    <td colspan="4"><b> Total: </b></td>
+    <td colspan="1" align="left"><b>{{ object.order_total }}</b></td></tr>
+
+</tbody>
+</table>
+<br>
+<br>
+<br>
+<div style="text-align: center">
+    <a style="text-align: center" class="buttoncart" href= {% url 'home' %}> Continue Shopping </a>
+    </div>
+<br>
+<div style="text-align: center">
+<a class="buttoncart" href= {% url 'checkout' %}> Checkout </a>
+</div>
+
+</div>
+
+</body>
+</html>
